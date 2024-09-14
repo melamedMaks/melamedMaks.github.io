@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+    .form-group label, .form-group input {
+        display: block;
+        width: 100%;
+    }
+}
+
+body {
+    background-color: red;
+}
+
+.form-control {
+    display: inline;
+    width: auto;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+.form-group #sale_price, .form-group #sale_percent {
+    margin-bottom: 10px;
+}
