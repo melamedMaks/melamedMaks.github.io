@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рентабельность дома на флип</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        @media (max-width: 768px) {
+            .form-inline {
+                flex-direction: column;
+            }
+            .form-inline label, .form-inline input {
+                width: 100%;
+            }
+        }
+        
+        .header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            font-weight: bold;
+        }
+        
+        .btn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Рентабельность дома на флип</h1>
+        </div>
+        <form method="post">
+
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="purchase_price" class="form-label">Цена покупки:</label>
+                    <input type="text" class="form-control" id="purchase_price" name="purchase_price" value="" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+                <div class="col">
+                    <label for="agent_fee_percent" class="form-label">Процент агенту (покупка):</label>
+                    <input type="number" class="form-control" id="agent_fee_percent" name="agent_fee_percent" step="0.1" value="2.5">
+                </div>
+            </div>
+            
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="sale_price" class="form-label">Цена продажи:</label>
+                    <input type="text" class="form-control" id="sale_price" name="sale_price" value="" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+                <div class="col">
+                    <label for="sale_percent" class="form-label">Процент агенту (продажа):</label>
+                    <input type="number" class="form-control" id="sale_percent" name="sale_percent" step="0.1" value="">
+                </div>
+            </div>
+            
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="repair_price" class="form-label">Цена ремонта:</label>
+                    <input type="text" class="form-control" id="repair_price" name="repair_price" value="" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+                <div class="col">
+                    <label for="project_term_months" class="form-label">Срок проекта (месяцы):</label>
+                    <input type="number" class="form-control" id="project_term_months" name="project_term_months" value="4">
+                </div>
+            </div>
+
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="downpayment_percent" class="form-label">Процент участия (Downpayment):</label>
+                    <input type="number" class="form-control" id="downpayment_percent" name="downpayment_percent" value="30">
+                </div>
+                <div class="col">
+                    <label for="loan_interest_rate" class="form-label">Cтавка по кредиту (процент):</label>
+                    <input type="number" class="form-control" id="loan_interest_rate" name="loan_interest_rate" step="0.1" value="12">
+                </div>
+            </div>
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="lenders_origination_fee_percent" class="form-label">Комиссия за выдачу кредита (процент):</label>
+                    <input type="number" class="form-control" id="lenders_origination_fee_percent" name="lenders_origination_fee_percent" step="0.1" value="0.5">
+                </div>
+                <div class="col">
+                    <label for="appraisal_fee" class="form-label">Оценка недвижимости:</label>
+                    <input type="text" class="form-control" id="appraisal_fee" name="appraisal_fee" value="$1,000" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+            </div>
+
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="closing_costs" class="form-label">Заключительные сборы:</label>
+                    <input type="text" class="form-control" id="closing_costs" name="closing_costs" value="$1,520" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+                <div class="col">
+                    <label for="property_tax_percent" class="form-label">Налог на имущество (процент):</label>
+                    <input type="number" class="form-control" id="property_tax_percent" name="property_tax_percent" step="0.01" value="0.75">
+                </div>
+            </div>
+
+            <div class="form-row form-group">
+                <div class="col">
+                    <label for="insurance_year" class="form-label">Страховка дома за год:</label>
+                    <input type="text" class="form-control" id="insurance_year" name="insurance_year" value="$1,200" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+                <div class="col">
+                    <label for="utilities_monthly" class="form-label">Коммуналка за месяц:</label>
+                    <input type="text" class="form-control" id="utilities_monthly" name="utilities_monthly" value="$300" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="risks" class="form-label">Риски:</label>
+                <input type="text" class="form-control" id="risks" name="risks" value="$5,000" oninput="this.value = '$' + this.value.replace(/\D/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Рассчитать прибыль</button>
+        </form>
+    </div>
+</body>
+</html>
